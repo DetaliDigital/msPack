@@ -11,19 +11,14 @@ if (!$msPack = $modx->getService('mspack', 'msPack', $modx->getOption('mspack_co
 $tpl = $modx->getOption('tpl', $scriptProperties, 'msPackTpl');
 $sortby = $modx->getOption('sortby', $scriptProperties, 'packindex');
 $sortdir = $modx->getOption('sortdir', $scriptProperties, 'ASC');
-$toPlaceholder = $modx->getOption('toPlaceholder', $scriptProperties, false);
-
-
-
+//$toPlaceholder = $modx->getOption('toPlaceholder', $scriptProperties, false);
 
 $c = $modx->newQuery('msPackList', array('active' => 1));
 $c->sortby($sortby, $sortdir);
 $items = $modx->getIterator('msPackList', $c);
 
-// Iterate through items
 $list = array();
-//$l = array();
-/** @var msPackItem $item */
+
 foreach ($items as $item) {
     $l = $item->toArray();
     if ($l['id'] == $msPack->getIdPack()) {
@@ -33,10 +28,6 @@ foreach ($items as $item) {
     $output .= $modx->getChunk($tpl, $l);
     
 }
-
-print '<pre>';
-//print_r($msPack->get());
-print '</pre>';
 
 $modx->toPlaceholder('packprice', $packPrice, 'pc');
 
