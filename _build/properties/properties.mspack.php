@@ -19,10 +19,10 @@ $tmp = array(
         ),
         'value' => 'ASC',
     ),
-    'toPlaceholder' => array(
+    /*'toPlaceholder' => array(
         'type' => 'combo-boolean',
         'value' => false,
-    ),
+    ),*/
 );
 
 foreach ($tmp as $k => $v) {
