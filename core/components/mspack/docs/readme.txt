@@ -22,6 +22,8 @@ ALTER TABLE `modx_ms2_orders` ADD `pack_cost` DECIMAL(12,2) NULL DEFAULT '0.00' 
 Сниппеты и Параметры
 [[msPack]]
 
+Сниппет вызывать не кешированным
+
 &tpl - Имя чанка для одного пункта, по умолчанию: msPackTpl
 &sortby - Поле для сортировки, по умолчанию: packindex
 &sortdir - Направление сортировки, по умолчанию: ASC
