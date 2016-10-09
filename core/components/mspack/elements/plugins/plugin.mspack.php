@@ -1,5 +1,11 @@
 <?php
 
+if (!$msPack = $modx->getService('mspack', 'msPack', $modx->getOption('mspack_core_path', null,
+        $modx->getOption('core_path') . 'components/mspack/') . 'model/mspack/', $scriptProperties)
+) {
+    return;
+}
+
 switch ($modx->event->name) {
     case 'OnManagerPageBeforeRender':
         if ($_GET['a'] == 'mgr/settings' && $_GET['namespace'] == 'minishop2') {
@@ -65,6 +71,19 @@ switch ($modx->event->name) {
             }
             
         }
+        
+        break;
+        
+        case 'msOnCreateOrder':
+            $arrOrder = $order->get();
+            $packObj = $modx->getObject('msPackList', array('id' => $arrOrder['mspack']));
+            if ($packObj) {
+                $packPrice = $packObj->get('pack_price');
+                if ($packPrice) {
+                    $msOrder->set('pack_cost', $packPrice);
+                    $msOrder->save();
+                }
+            }
         
         break;
 }
