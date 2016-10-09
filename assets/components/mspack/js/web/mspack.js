@@ -14,6 +14,7 @@ var msPack = {
             $(document).on('change', 'input[name=mspack]', function() {
                 packPrice = $(this).data('mspack');
                 msPack.setTotal(orderCost, packPrice);
+                $('#mspack-price').text(packPrice);
             });
             msPack.setTotal(orderCost, packPrice);
         });
