@@ -31,8 +31,4 @@ foreach ($items as $item) {
 
 $modx->toPlaceholder('packprice', $packPrice, 'pc');
 
-$modx->regClientScript($msPack->config['jsUrl'] . 'web/mspack.js');
-$modx->regClientHTMLBlock('<script>msPack.initialize({ "actionUrl":"'
-        . $msPack->config['actionUrl'] . '"});</script>');
-
 return $output;
