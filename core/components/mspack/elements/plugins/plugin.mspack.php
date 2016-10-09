@@ -81,6 +81,7 @@ switch ($modx->event->name) {
                 $packPrice = $packObj->get('pack_price');
                 if ($packPrice) {
                     $msOrder->set('pack_cost', $packPrice);
+                    $msOrder->set('cost', $msOrder->get('cost') + $packPrice);
                     $msOrder->save();
                 }
             }
