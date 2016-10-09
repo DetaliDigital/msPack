@@ -11,6 +11,7 @@ $tmp = array(
         'events' => array(
             'OnManagerPageBeforeRender' => array(),
             'OnMODXInit' => array(),
+            'msOnCreateOrder' => array(),
         )
     )
 );
