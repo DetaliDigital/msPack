@@ -11,7 +11,7 @@ if (!$msPack = $modx->getService('mspack', 'msPack', $modx->getOption('mspack_co
 $tpl = $modx->getOption('tpl', $scriptProperties, 'msPackTpl');
 $sortby = $modx->getOption('sortby', $scriptProperties, 'packindex');
 $sortdir = $modx->getOption('sortdir', $scriptProperties, 'ASC');
-//$toPlaceholder = $modx->getOption('toPlaceholder', $scriptProperties, false);
+$freePack = $modx->getOption('mspack_pack_free');
 
 $c = $modx->newQuery('msPackList', array('active' => 1));
 $c->sortby($sortby, $sortdir);
@@ -32,6 +32,6 @@ foreach ($items as $item) {
 $modx->toPlaceholder('packprice', $packPrice, 'pc');
 
 $modx->regClientScript($msPack->config['jsUrl'] . 'web/mspack.js');
-$modx->regClientHTMLBlock('<script>msPack.initialize();</script>');
+$modx->regClientHTMLBlock('<script>msPack.initialize({ "freePack": ' . $freePack . ' });</script>');
 
 return $output;

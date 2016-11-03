@@ -1,5 +1,4 @@
 <?php
-
 if (!$msPack = $modx->getService('mspack', 'msPack', $modx->getOption('mspack_core_path', null,
         $modx->getOption('core_path') . 'components/mspack/') . 'model/mspack/', $scriptProperties)
 ) {
@@ -75,16 +74,21 @@ switch ($modx->event->name) {
         break;
         
         case 'msOnCreateOrder':
-            $arrOrder = $order->get();
-            $packObj = $modx->getObject('msPackList', array('id' => $arrOrder['mspack']));
-            if ($packObj) {
-                $packPrice = $packObj->get('pack_price');
-                if ($packPrice) {
-                    $msOrder->set('pack_cost', $packPrice);
-                    $msOrder->set('cost', $msOrder->get('cost') + $packPrice);
-                    $msOrder->save();
+            $cost = $order->getCost(true, true);
+            $freePack = $modx->getOption('mspack_pack_free');
+            if ($cost < $freePack) {
+                $arrOrder = $order->get();
+                $packObj = $modx->getObject('msPackList', array('id' => $arrOrder['mspack']));
+                if ($packObj) {
+                    $packPrice = $packObj->get('pack_price');
+                    if ($packPrice) {
+                        $msOrder->set('pack_cost', $packPrice);
+                        $msOrder->set('cost', $msOrder->get('cost') + $packPrice);
+                        $msOrder->save();
+                    }
                 }
             }
+            
         
         break;
 }

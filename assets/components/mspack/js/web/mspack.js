@@ -11,6 +11,13 @@ var msPack = {
             // Получить отмеченный инпут
             var packPrice = parseFloat($('.mspack:checked').data('mspack'));
             
+            if (orderCost >= config.freePack) {
+                $('#mspack-price').text(0);
+                return false;
+            } else {
+                $('#mspack-price').text(packPrice);
+            }
+            
             $(document).on('change', 'input[name=mspack]', function() {
                 packPrice = $(this).data('mspack');
                 msPack.setTotal(orderCost, packPrice);

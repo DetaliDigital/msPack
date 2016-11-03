@@ -4,8 +4,8 @@
 define('PKG_NAME', 'msPack');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
-define('PKG_VERSION', '1.0.0');
-define('PKG_RELEASE', 'beta2');
+define('PKG_VERSION', '1.0.1');
+define('PKG_RELEASE', 'beta');
 define('PKG_AUTO_INSTALL', true);
 define('PKG_NAMESPACE_PATH', '{core_path}components/' . PKG_NAME_LOWER . '/');
 
@@ -30,8 +30,8 @@ define('MODX_CONNECTORS_URL', MODX_BASE_URL . 'connectors/');
 define('MODX_ASSETS_URL', MODX_BASE_URL . 'assets/');
 
 // define build options
-define('BUILD_MENU_UPDATE', true);
-define('BUILD_SETTING_UPDATE', false);
+//define('BUILD_MENU_UPDATE', true);
+define('BUILD_SETTING_UPDATE', true);
 define('BUILD_CHUNK_UPDATE', true);
 
 define('BUILD_SNIPPET_UPDATE', true);
@@ -48,6 +48,4 @@ define('BUILD_PLUGIN_STATIC', false);
 $BUILD_RESOLVERS = array(
     'tables',
     'chunks',
-    //'setup',
-    //'office',
 );

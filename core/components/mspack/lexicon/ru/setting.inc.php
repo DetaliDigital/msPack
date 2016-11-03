@@ -2,5 +2,5 @@
 
 $_lang['area_mspack_main'] = 'Основные';
 
-$_lang['setting_mspack_some_setting'] = 'Какая-то настройка';
-$_lang['setting_mspack_some_setting_desc'] = 'Это описание для какой-то настройки';
+$_lang['setting_mspack_pack_free'] = 'Бесплатная упаковка от суммы';
+$_lang['setting_mspack_pack_free_desc'] = 'Здесь нужно указать от какой суммы будет упаковка бесплатна.';
